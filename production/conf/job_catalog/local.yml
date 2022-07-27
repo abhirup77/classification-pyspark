@@ -1,0 +1,49 @@
+jobs:
+  - name: data-cleaning
+    stages:
+      - name: "clean_call_table"
+        tasks:
+          - name: "call_data"
+            params: {}
+      - name: "clean_customer_activity_table"
+        tasks:
+          - name: "customer_activity_data"
+            params: {}
+      - name: "clean_booking_table"
+        tasks:
+          - name: "booking_data"
+            params: { }
+      - name: "clean_consumer_table"
+        tasks:
+          - name: "consumer_data"
+            params: { }
+      - name: "clean_web_table"
+        tasks:
+          - name: "web_data"
+            params: { }
+#
+  - name: feature-engineering
+    stages:
+      - name: "transform_data"
+        tasks:
+          - name: "transform-data"
+            params: {}
+      - name: "create_train_test_split"
+        tasks:
+          - name: "train_test_split"
+            params: {}
+#
+  - name: model-gen
+    stages:
+      - name: "model-creation"
+        tasks:
+          - name: "train-model"
+            params:
+              sampling_fraction: 0.1
+
+  - name: model-eval
+    stages:
+      - name: "model-predict"
+        tasks:
+          - name: "score-model"
+            params: {}

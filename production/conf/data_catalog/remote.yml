@@ -1,0 +1,35 @@
+# All relevant configurations for the project
+# generic parameters
+reference_date: 2019-04-26
+num_days_prediction: 90
+
+# data path configurations
+raw:
+    filesystem: dbfs
+    base_path: /FileStore/tables/vacation_partitioned/
+    call_data_path: dial_summary.parquet # relative to base path
+    last_activity_data_path: customer_activity.parquet # relative to base path
+    booking_data_path: class_labels.parquet # relative to base path
+    consumer_data_path: customer.parquet # relative to base path
+    web_data_path: itr_data_*.parquet # relative to base path
+
+clean:
+    filesystem: dbfs
+    base_path: /FileStore/tables/vacation_clean/
+    call_data_path: dial_summary.parquet # relative to base path
+    last_activity_data_path: customer_activity.parquet # relative to base path
+    booking_data_path: class_labels.parquet # relative to base path
+    consumer_data_path: customer.parquet
+    web_data_path: itr_data_*.parquet # relative to base path
+    final_vacation_data_path: final_vacation_merged.parquet # relative to base path
+
+processed:
+    filesystem: dbfs
+    base_path: /FileStore/tables/spark_warehouse/
+    train: train.parquet # relative to base path
+    test: test.parquet # relative to base path
+    preds: predictions_vacation.parquet # relative to base path
+
+spark:
+    spark.executer.cores: 4
+    spark.cores.max: 4

@@ -1,0 +1,9 @@
+all:
+    core: default
+    log_catalog: production
+    data_catalog: local
+    job_catalog: local
+# spark configurations to setup for the spark context
+spark:
+    spark.executer.cores: 4
+    spark.cores.max: 4
